@@ -1,6 +1,6 @@
 // 1. Fondo de Estrellas Aleatorias
 const starField = document.getElementById('star-field');
-for (let i = 0; i < 80; i++) { // Reducido un poco para optimizar rendimiento móvil
+for (let i = 0; i < 80; i++) {
     const star = document.createElement('div');
     star.classList.add('star');
     const size = Math.random() * 2 + 1;
@@ -21,7 +21,6 @@ function generateNaturalField() {
     const viewHeight = window.innerHeight;
     const area = viewWidth * viewHeight;
     
-    // Cambia la proporción dependiendo de si es celular o PC
     const divisor = viewWidth < 600 ? 6500 : 9500; 
     const flowerCount = Math.floor(area / divisor);
 
@@ -47,7 +46,6 @@ function createOrganicGerbera(x, y, scale, tilt, delay, zIndex, viewWidth) {
     gerbera.style.setProperty('--flower-tilt', `${tilt}deg`);
     gerbera.style.setProperty('--delay', `${delay}s`);
 
-    // El cálculo de posicionamiento de los pétalos cambia según las dimensiones CSS aplicadas
     const petalLeft = viewWidth < 600 ? 37 : 51;
     const petalWidth = viewWidth < 600 ? 6 : 8;
     const heightFront = viewWidth < 600 ? 40 : 55;
@@ -69,7 +67,6 @@ function createOrganicGerbera(x, y, scale, tilt, delay, zIndex, viewWidth) {
 }
 
 generateNaturalField();
-// Evento inteligente para cuando se rota la pantalla en móviles
 window.addEventListener('resize', generateNaturalField);
 
 // 3. Mecánica del Menú Interactivo
@@ -90,17 +87,16 @@ function handleYes() {
     } 
     
     if (yesCount > 10) {
-        questionText.innerHTML = "✨ ¡Sabía que sí! ✨<br><br><span style='color:#fff; font-size:1.6rem; text-shadow: 0 0 10px #ffcc00; display:block; line-height:1.3;'>Te amo como no tienes idea mi niña hermosa... tal vez por las circuntancias no pueda ser exactamente igual que al inicio, pero no dudes cuando digo que te amo... perdon por no poder darte como tal tus flores amarillas, siendo la primer fecha pero pues por mas que busque la manera de que fuera como tanto te gustaria solo encontre lo relacionado a lo que me dedico... al menos es 100% original😞😞😢❤️</span>";
+        questionText.innerHTML = "✨ ¡Sabía que sí! ✨<br><br><span style='color:#fff; font-size:1.6rem; text-shadow: 0 0 10px #ffcc00; display:block; line-height:1.3;'>Te amo como no tienes idea ❤️</span>";
         buttonsBox.innerHTML = ''; 
     }
 }
 
 function dodgeNo() {
-    // Detectamos las dimensiones actuales de la caja para que no se salga al escapar
-    const cardWidth = btnNo.parentElement.parentElement.offsetWidth;
-    const cardHeight = btnNo.parentElement.parentElement.offsetHeight;
+    const card = document.getElementById('menu-card');
+    const cardWidth = card.clientWidth;
+    const cardHeight = card.clientHeight;
     
-    // Margen de seguridad dentro de la tarjeta
     const randomX = Math.random() * (cardWidth - 110) - (cardWidth / 2 - 55);
     const randomY = Math.random() * (cardHeight - 110) - (cardHeight / 2 - 55);
     
