@@ -90,7 +90,7 @@ function handleYes() {
     } 
     
     if (yesCount > 10) {
-        questionText.innerHTML = "✨ ¡Sabía que sí! ✨<br><br><span style='color:#fff; font-size:1.6rem; text-shadow: 0 0 10px #ffcc00; display:block; line-height:1.3;'>Te amo como no tienes idea mi niña hermosa... tal vez por las circuntancias no pueda ser exactamente igual que al inicio, pero no dudes cuando digo que te amo ❤️</span>";
+        questionText.innerHTML = "✨ ¡Sabía que sí! ✨<br><br><span style='color:#fff; font-size:1.6rem; text-shadow: 0 0 10px #ffcc00; display:block; line-height:1.3;'>Te amo como no tienes idea mi niña hermosa... tal vez por las circuntancias no pueda ser exactamente igual que al inicio, pero no dudes cuando digo que te amo... perdon por no poder darte como tal tus flores amarillas, siendo la primer fecha pero pues por mas que busque la maenra de que fuera como tanto te gustaria solo encontre lo relacionado a mi carreara😞😞😢❤️</span>";
         buttonsBox.innerHTML = ''; 
     }
 }
