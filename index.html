@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Universo de Gerberas Amarillas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Fondo de Estrellas -->
+    <div class="stars" id="star-field"></div>
+    
+    <!-- Campo de flores -->
+    <div class="flower-field" id="field"></div>
+    
+    <!-- Título principal responsivo -->
+    <h1>UNiverso de Gerberas para ti mi amor 💛</h1>
+
+    <!-- Tarjeta del Menú Interactivo responsivo -->
+    <div class="interactive-card" id="menu-card">
+        <div class="card-question" id="question-text">¿Eres feliz a mi lado?</div>
+        <div class="btn-container" id="buttons-box">
+            <button class="btn btn-yes" id="btn-yes" onclick="handleYes()">Sí</button>
+            <button class="btn btn-no" id="btn-no" onmouseover="dodgeNo()" ontouchstart="dodgeNo()" onclick="dodgeNo()">No</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

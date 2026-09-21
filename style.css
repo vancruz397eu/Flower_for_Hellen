@@ -1,0 +1,240 @@
+/* Configuración global del fondo galáctico */
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #110e26 0%, #050510 100%);
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Fondo de estrellas */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle var(--duration) infinite ease-in-out;
+}
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Título flotante responsivo */
+h1 {
+    position: absolute;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 2.3rem; /* Tamaño para PC */
+    text-shadow: 0 0 15px #ffd700, 0 0 30px #ffa500;
+    margin: 0;
+    z-index: 100;
+    text-align: center;
+    width: 90%;
+    pointer-events: none;
+    animation: pulse 2.5s infinite alternate;
+}
+@keyframes pulse {
+    0% { transform: translateX(-50%) scale(1); }
+    100% { transform: translateX(-50%) scale(1.03); }
+}
+
+/* Contenedor del campo caótico */
+.flower-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+/* Estructura base de la Gerbera (Tamaño por defecto en PC) */
+.gerbera {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    transform: translate(-50%, -50%) rotate(var(--flower-tilt)) scale(0);
+    animation: bloom 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.15) forwards;
+    animation-delay: var(--delay);
+}
+@keyframes bloom {
+    to { transform: translate(-50%, -50%) rotate(var(--flower-tilt)) scale(var(--base-scale)); }
+}
+
+/* Centro oscuro de la flor */
+.gerbera-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 22px;
+    background: radial-gradient(circle, #1a0b02 30%, #4a2f1b 70%, #ffcc00 100%);
+    border-radius: 50%;
+    z-index: 4;
+    box-shadow: inset 0 0 5px #000, 0 2px 5px rgba(0,0,0,0.4);
+}
+
+/* Capas de pétalos */
+.g-petals {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.g-petal {
+    position: absolute;
+    top: 0;
+    left: 51px;
+    width: 8px;
+    height: 55px;
+    background: linear-gradient(to top, #ffcc00, #fff700);
+    border-radius: 4px;
+    transform-origin: bottom center;
+    transform: rotate(var(--g-angle));
+}
+.g-petals.back .g-petal {
+    background: linear-gradient(to top, #e6b800, #ffcc00);
+    height: 57px;
+    top: -2px;
+}
+
+/* Tarjeta interactiva del menú (PC) */
+.interactive-card {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 340px;
+    max-width: 85vw; /* Evita que se desborde en pantallas diminutas */
+    background: rgba(11, 11, 26, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3), inset 0 0 15px rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    z-index: 200;
+    box-sizing: border-box;
+    animation: showCard 0.8s 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes showCard {
+    to { transform: translate(-50%, -50%) scale(1); }
+}
+
+.card-question {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    line-height: 1.4;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    height: 50px;
+    align-items: center;
+}
+
+.btn {
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+}
+.btn-yes {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    color: #050510;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+.btn-yes:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+}
+.btn-no {
+    background: #2a2a40;
+    color: #b0b0d0;
+    position: absolute;
+    right: 40px;
+}
+
+/* Partículas flotantes */
+.sparkle {
+    position: absolute;
+    color: #ffd700;
+    font-size: 1.5rem;
+    pointer-events: none;
+    animation: floatUp 4.5s linear infinite;
+    bottom: -50px;
+    z-index: 80;
+}
+@keyframes floatUp {
+    0% { transform: translateY(0) translateX(0) scale(0); opacity: 0; }
+    30% { opacity: 0.9; }
+    100% { transform: translateY(-110vh) translateX(var(--drift)) scale(1.3); opacity: 0; }
+}
+
+/* =======================================================
+   REGLAS ESPECÍFICAS PARA TELÉFONOS (PANTALLAS CHICAS)
+   ======================================================= */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.4rem; /* Texto más pequeño para que no invada la pantalla */
+        top: 8vh;
+    }
+
+    .interactive-card {
+        width: 290px; /* Tarjeta un poco más compacta en móvil */
+        padding: 25px 15px;
+    }
+
+    .card-question {
+        font-size: 1.25rem;
+    }
+
+    .btn {
+        padding: 8px 20px;
+        font-size: 1rem;
+    }
+    
+    .btn-no {
+        right: 20px;
+    }
+
+    /* Reducimos ligeramente el tamaño base de la flor en teléfonos 
+       para mantener la estética de prado natural */
+    .gerbera {
+        width: 80px;
+        height: 80px;
+    }
+    .gerbera-center {
+        width: 16px;
+        height: 16px;
+    }
+    .g-petal {
+        left: 37px;
+        width: 6px;
+        height: 40px;
+    }
+    .g-petals.back .g-petal {
+        height: 42px;
+    }
+}
