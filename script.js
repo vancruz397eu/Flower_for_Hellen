@@ -1,6 +1,6 @@
 // 1. Fondo de Estrellas Aleatorias
 const starField = document.getElementById('star-field');
-for (let i = 0; i < 80; i++) {
+for (let i = 0; i < 80; i++) { // Reducido un poco para optimizar rendimiento móvil
     const star = document.createElement('div');
     star.classList.add('star');
     const size = Math.random() * 2 + 1;
@@ -21,6 +21,7 @@ function generateNaturalField() {
     const viewHeight = window.innerHeight;
     const area = viewWidth * viewHeight;
     
+    // Cambia la proporción dependiendo de si es celular o PC
     const divisor = viewWidth < 600 ? 6500 : 9500; 
     const flowerCount = Math.floor(area / divisor);
 
@@ -46,6 +47,7 @@ function createOrganicGerbera(x, y, scale, tilt, delay, zIndex, viewWidth) {
     gerbera.style.setProperty('--flower-tilt', `${tilt}deg`);
     gerbera.style.setProperty('--delay', `${delay}s`);
 
+    // El cálculo de posicionamiento de los pétalos cambia según las dimensiones CSS aplicadas
     const petalLeft = viewWidth < 600 ? 37 : 51;
     const petalWidth = viewWidth < 600 ? 6 : 8;
     const heightFront = viewWidth < 600 ? 40 : 55;
@@ -67,6 +69,7 @@ function createOrganicGerbera(x, y, scale, tilt, delay, zIndex, viewWidth) {
 }
 
 generateNaturalField();
+// Evento inteligente para cuando se rota la pantalla en móviles
 window.addEventListener('resize', generateNaturalField);
 
 // 3. Mecánica del Menú Interactivo
@@ -93,10 +96,11 @@ function handleYes() {
 }
 
 function dodgeNo() {
-    const card = document.getElementById('menu-card');
-    const cardWidth = card.clientWidth;
-    const cardHeight = card.clientHeight;
+    // Detectamos las dimensiones actuales de la caja para que no se salga al escapar
+    const cardWidth = btnNo.parentElement.parentElement.offsetWidth;
+    const cardHeight = btnNo.parentElement.parentElement.offsetHeight;
     
+    // Margen de seguridad dentro de la tarjeta
     const randomX = Math.random() * (cardWidth - 110) - (cardWidth / 2 - 55);
     const randomY = Math.random() * (cardHeight - 110) - (cardHeight / 2 - 55);
     
